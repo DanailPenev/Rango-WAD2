@@ -9,4 +9,5 @@ def index(request):
 # Create your views here.
 
 def about(request):
-    return HttpResponse("Rango says here is the about page. <br> <a href='/rango/'>Index</a>")
+	context_dict = {'message': "This tutorial has been put together by Danail Penev"}
+	return render(request, 'rango/about.html', context=context_dict)
