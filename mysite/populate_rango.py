@@ -39,7 +39,16 @@ def populate():
 			
 			
 	for cat, cat_data in cats.iteritems():
-		c = add_cat(cat)
+		if cat=="Python":
+			views = 128
+			likes = 64
+		elif cat=="Django":
+			views = 64
+			likes = 32
+		elif cat=="Other Frameworks":
+			views = 32
+			likes = 16
+		c = add_cat(cat, views, likes)
 		for p in cat_data["pages"]:
 			add_page(c, p["title"], p["url"])
 			
@@ -55,8 +64,10 @@ def add_page(cat, title, url, views=0):
 	return p
 	
 	
-def add_cat(name):
+def add_cat(name, views, likes):
 	c = Category.objects.get_or_create(name=name)[0]
+	c.views = views
+	c.likes = likes
 	c.save()
 	return c
 	
