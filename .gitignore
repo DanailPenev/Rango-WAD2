@@ -1,0 +1,7 @@
+.cache/
+.local/
+.virtualenvs/
+.bashrc
+.profile
+.vimrc
+.pythonstartup
